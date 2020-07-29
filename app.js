@@ -1,3 +1,4 @@
+
 //creating a grid and append it to the container
 function creatDiv (cols,rows){
     const container = document.querySelector(".container");
@@ -28,6 +29,17 @@ function ganerateRGB (){
     const color = `rgb(${R},${G},${B})`;
     return color;
 }
+
+function load() {
+    const boxs = document.querySelectorAll('.box');
+    boxs.forEach(box =>{
+        box.addEventListener('mouseover',() =>{
+            box.style.backgroundColor = ganerateRGB();
+            box.style.boxShadow = ` 0px 0px 10px ${ganerateRGB()}`;
+        });
+    });
+}
+load();
 
 //function for the colors button 
 function Colors(){
@@ -90,6 +102,7 @@ function reset(){
             blackColor()
             greyColor();
             Colors();
+            load();
         }else{
             removeGrid();
             creatDiv(user,user);
@@ -97,6 +110,7 @@ function reset(){
             blackColor();
             greyColor();
             Colors();
+            load();
         }
     });
 }
